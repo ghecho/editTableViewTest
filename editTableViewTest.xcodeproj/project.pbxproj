@@ -14,7 +14,6 @@
 		F1B622D91871440C0003A2E5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F1B622D81871440C0003A2E5 /* main.m */; };
 		F1B622DD1871440C0003A2E5 /* EditTVAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F1B622DC1871440C0003A2E5 /* EditTVAppDelegate.m */; };
 		F1B622E01871440C0003A2E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1B622DE1871440C0003A2E5 /* Main.storyboard */; };
-		F1B622E31871440C0003A2E5 /* EditTVViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1B622E21871440C0003A2E5 /* EditTVViewController.m */; };
 		F1B622E51871440C0003A2E5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1B622E41871440C0003A2E5 /* Images.xcassets */; };
 		F1B622EC1871440C0003A2E5 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1B622EB1871440C0003A2E5 /* XCTest.framework */; };
 		F1B622ED1871440C0003A2E5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1B622CC1871440C0003A2E5 /* Foundation.framework */; };
@@ -48,8 +47,6 @@
 		F1B622DB1871440C0003A2E5 /* EditTVAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditTVAppDelegate.h; sourceTree = "<group>"; };
 		F1B622DC1871440C0003A2E5 /* EditTVAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditTVAppDelegate.m; sourceTree = "<group>"; };
 		F1B622DF1871440C0003A2E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F1B622E11871440C0003A2E5 /* EditTVViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditTVViewController.h; sourceTree = "<group>"; };
-		F1B622E21871440C0003A2E5 /* EditTVViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditTVViewController.m; sourceTree = "<group>"; };
 		F1B622E41871440C0003A2E5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F1B622EA1871440C0003A2E5 /* editTableViewTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = editTableViewTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1B622EB1871440C0003A2E5 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -124,8 +121,6 @@
 				F1B622DE1871440C0003A2E5 /* Main.storyboard */,
 				F1B623011871443A0003A2E5 /* EditTVC.h */,
 				F1B623021871443A0003A2E5 /* EditTVC.m */,
-				F1B622E11871440C0003A2E5 /* EditTVViewController.h */,
-				F1B622E21871440C0003A2E5 /* EditTVViewController.m */,
 				F1B622E41871440C0003A2E5 /* Images.xcassets */,
 				F1B622D31871440C0003A2E5 /* Supporting Files */,
 			);
@@ -263,7 +258,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1B622E31871440C0003A2E5 /* EditTVViewController.m in Sources */,
 				F1B622DD1871440C0003A2E5 /* EditTVAppDelegate.m in Sources */,
 				F1B622D91871440C0003A2E5 /* main.m in Sources */,
 				F1B623031871443A0003A2E5 /* EditTVC.m in Sources */,
@@ -392,6 +386,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "editTableViewTest/editTableViewTest-Prefix.pch";
 				INFOPLIST_FILE = "editTableViewTest/editTableViewTest-Info.plist";
@@ -404,6 +399,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "editTableViewTest/editTableViewTest-Prefix.pch";
 				INFOPLIST_FILE = "editTableViewTest/editTableViewTest-Info.plist";
@@ -473,6 +469,7 @@
 				F1B622FD1871440C0003A2E5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F1B622FE1871440C0003A2E5 /* Build configuration list for PBXNativeTarget "editTableViewTestTests" */ = {
 			isa = XCConfigurationList;
@@ -481,6 +478,7 @@
 				F1B623001871440C0003A2E5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

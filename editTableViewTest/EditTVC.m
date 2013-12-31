@@ -3,7 +3,6 @@
 //  editTableViewTest
 //
 //  Created by Diego on 12/30/13.
-//  Copyright (c) 2013 Diego. All rights reserved.
 //
 
 #import "EditTVC.h"
@@ -48,7 +47,27 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
+    
+    if (self.editing) {
+        return myItems.count +1;
+    }
+    
     return myItems.count;
+}
+
+-(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == myItems.count)
+        return UITableViewCellEditingStyleInsert;
+    else
+        return UITableViewCellEditingStyleDelete;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return NO if you do not want the item to be re-orderable.
+    if (indexPath.row == myItems.count)
+        return NO;
+    return YES;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -57,9 +76,33 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.textLabel.text = myItems[indexPath.row];
+    
+    if (self.editing && indexPath.row == myItems.count) {
+        cell.textLabel.text = @"Add ...";
+    }
+    else
+    {
+        cell.textLabel.text = myItems[indexPath.row];
+    }
     
     return cell;
+}
+
+-(void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    
+    [super setEditing:editing animated:animated];
+    
+    if(editing)
+    {
+        //edit mode
+    }
+    
+    else
+    {
+        //non-edit mode
+    }
+    
+    [self.tableView reloadData];
 }
 
 // Override to support editing the table view.
@@ -75,6 +118,8 @@
     else if (editingStyle == UITableViewCellEditingStyleInsert)
     {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        [myItems insertObject:[NSString stringWithFormat:@"Added %d",indexPath.row] atIndex:indexPath.row];
+        [tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
     NSLog(@"%@",myItems);
 }
@@ -82,9 +127,22 @@
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
-    id tmp = [myItems objectAtIndex:fromIndexPath.row];
-    [myItems removeObjectAtIndex:fromIndexPath.row];
-    [myItems insertObject:tmp atIndex:toIndexPath.row];
+    if (toIndexPath.row == myItems.count) //we only check the toIndexPath because we made the AddCell not to respond to move events
+    {
+        id tmp = [myItems objectAtIndex:fromIndexPath.row];
+        [myItems removeObjectAtIndex:fromIndexPath.row];
+        [myItems insertObject:tmp atIndex:toIndexPath.row-1]; //to keep it in valid range for the NSMutableArray
+        
+        [self.tableView reloadData];
+    }
+    
+    else
+    {
+        id tmp = [myItems objectAtIndex:fromIndexPath.row];
+        [myItems removeObjectAtIndex:fromIndexPath.row];
+        [myItems insertObject:tmp atIndex:toIndexPath.row];
+    }
+    
     NSLog(@"%@",myItems);
 }
 
