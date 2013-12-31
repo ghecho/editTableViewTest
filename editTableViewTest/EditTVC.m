@@ -29,10 +29,6 @@
     }
     
     NSLog(@"%@",myItems);
-//    [myItems exchangeObjectAtIndex:1 withObjectAtIndex:4];
-//    NSLog(@"%@",myItems);
-    
-//    [self.tableView reloadData];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
