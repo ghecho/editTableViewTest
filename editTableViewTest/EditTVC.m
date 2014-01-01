@@ -114,7 +114,7 @@
     else if (editingStyle == UITableViewCellEditingStyleInsert)
     {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        [myItems insertObject:[NSString stringWithFormat:@"Added %d",indexPath.row] atIndex:indexPath.row];
+        [myItems insertObject:[NSString stringWithFormat:@"Added %ld",(long)indexPath.row] atIndex:indexPath.row];
         [tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
     NSLog(@"%@",myItems);
