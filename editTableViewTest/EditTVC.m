@@ -63,7 +63,8 @@
     // Return NO if you do not want the item to be re-orderable.
     if (indexPath.row == myItems.count)
         return NO;
-    return YES;
+    else
+        return YES;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -73,7 +74,8 @@
     
     // Configure the cell...
     
-    if (self.editing && indexPath.row == myItems.count) {
+    if (self.editing && indexPath.row == myItems.count)
+    {
         cell.textLabel.text = @"Add ...";
     }
     else
